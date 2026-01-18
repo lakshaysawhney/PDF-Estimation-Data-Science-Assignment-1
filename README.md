@@ -4,7 +4,7 @@
 Given the NO2 feature `x`, we transform it into `z` using a roll-number-parameterized non-linear transform and estimate the parameters of the PDF:
 
 $$
-\hat{p}(z)=c\,e^{-\lambda(z-\mu)^2}
+\hat{p}(z)=c\*e^{-\lambda(z-\mu)^2}
 $$
 
 ---
@@ -69,14 +69,16 @@ $$
 ## Results
 
 ### Estimated Parameters
+
 | Parameter | Value |
 |---|---:|
 | Roll Number | 102303872 |
-| $a_r$ | 0.3 |
-| $b_r$ | 0.9 |
-| Estimated Mean $ \mu $ | 25.296068824252533 |
-| Estimated Lambda $ \lambda $ | 0.0019508225998259062 |
-| Estimated $c$ | 0.02491919179498707 |
+| a_r | 0.3 |
+| b_r | 0.9 |
+| Estimated Mean (mu) | 25.296068824252533 |
+| Estimated Lambda (lambda) | 0.0019508225998259062 |
+| Estimated c | 0.02491919179498707 |
+
 
 A CSV of the estimated parameters is saved at: `outputs/estimated_params.csv`.
 
