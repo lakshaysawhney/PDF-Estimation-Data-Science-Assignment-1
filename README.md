@@ -1,6 +1,4 @@
-# PDF-Estimation-Data-Science-Assignment-1
-
-# Assignment-1: Learn Probability Density Functions using Roll-Number-Parameterized Non-Linear Model
+# Q: Learn Probability Density Functions using Roll-Number-Parameterized Non-Linear Model
 
 ## Objective
 Given the NO2 feature `x`, we transform it into `z` using a roll-number-parameterized non-linear transform and estimate the parameters of the PDF:
