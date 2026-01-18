@@ -3,9 +3,9 @@
 ## Objective
 Given the NO2 feature `x`, we transform it into `z` using a roll-number-parameterized non-linear transform and estimate the parameters of the PDF:
 
-\[
+$$
 \hat{p}(z)=c\,e^{-\lambda(z-\mu)^2}
-\]
+$$
 
 ---
 
@@ -14,7 +14,7 @@ Given the NO2 feature `x`, we transform it into `z` using a roll-number-paramete
 - Feature used: **NO2** (`no2`)
 - Total rows in dataset: 435742
 - Valid NO2 samples used after cleaning: 415688
-- Link - https://www.kaggle.com/datasets/shrutibhargava94/india-air-quality-data
+- Link: https://www.kaggle.com/datasets/shrutibhargava94/india-air-quality-data
 
 ---
 
@@ -29,37 +29,40 @@ Given the NO2 feature `x`, we transform it into `z` using a roll-number-paramete
 ### Step 2: Transform x → z
 Transformation:
 
-\[
+$$
 z = x + a_r\sin(b_r x)
-\]
+$$
 
 where
 
-\[
+$$
 a_r = 0.05(r \bmod 7), \quad b_r = 0.3((r \bmod 5)+1)
-\]
+$$
 
 For roll number **102303872**:
-- \( r \bmod 7 = 6 \Rightarrow a_r = 0.3 \)
-- \( r \bmod 5 = 2 \Rightarrow b_r = 0.9 \)
+- $r \bmod 7 = 6 \Rightarrow a_r = 0.3$
+- $r \bmod 5 = 2 \Rightarrow b_r = 0.9$
 
 ---
 
 ## Parameter Estimation (MLE)
 We estimate parameters using maximum likelihood assuming a normalized Gaussian-shaped density:
 
-- \[
-\hat{\mu} = \frac{1}{n}\sum z_i
-\]
-- \[
-\hat{\sigma}^2 = \frac{1}{n}\sum (z_i-\hat{\mu})^2
-\]
-- \[
+$$
+\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n} z_i
+$$
+
+$$
+\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^{n} (z_i-\hat{\mu})^2
+$$
+
+$$
 \hat{\lambda} = \frac{1}{2\hat{\sigma}^2}
-\]
-- \[
+$$
+
+$$
 \hat{c} = \sqrt{\frac{\hat{\lambda}}{\pi}}
-\]
+$$
 
 ---
 
@@ -69,11 +72,11 @@ We estimate parameters using maximum likelihood assuming a normalized Gaussian-s
 | Parameter | Value |
 |---|---:|
 | Roll Number | 102303872 |
-| \(a_r\) | 0.3 |
-| \(b_r\) | 0.9 |
-| Estimated Mean \( \mu \) | 25.296068824252533 |
-| Estimated Lambda \( \lambda \) | 0.0019508225998259062 |
-| Estimated \(c\) | 0.02491919179498707 |
+| $a_r$ | 0.3 |
+| $b_r$ | 0.9 |
+| Estimated Mean $ \mu $ | 25.296068824252533 |
+| Estimated Lambda $ \lambda $ | 0.0019508225998259062 |
+| Estimated $c$ | 0.02491919179498707 |
 
 A CSV of the estimated parameters is saved at: `outputs/estimated_params.csv`.
 
@@ -88,6 +91,6 @@ Histogram of transformed variable `z` with fitted curve overlay:
 
 ## How to Run
 1. Open `DS_A1_102303872_PDF_Estimation.ipynb` in Google Colab
-2. Upload `data.csv` to `/content/` using Kaggle link provided.
-3. Run all cells.
-4. Final estimated values are printed in the notebook.
+2. Upload `data.csv` to `/content/` using Kaggle link provided
+3. Run all cells
+4. Final estimated values are printed in the notebook
